@@ -1,0 +1,505 @@
+/* Speaker Water Ejector Tool — scoped styles, prefixed with .swe- to avoid
+   colliding with the Kadence theme or other plugins. */
+
+.swe-wrap {
+	--swe-bg-1: #eef4ff;
+	--swe-bg-2: #f6eeff;
+	--swe-primary: #3b5bfd;
+	--swe-primary-dark: #2a41c9;
+	--swe-accent: #17c3b2;
+	--swe-text: #1c2233;
+	--swe-muted: #5b6478;
+	--swe-card-bg: rgba(255, 255, 255, 0.72);
+	--swe-card-border: rgba(255, 255, 255, 0.55);
+	--swe-radius-lg: 22px;
+	--swe-radius-md: 14px;
+	--swe-shadow: 0 12px 30px rgba(30, 40, 90, 0.12);
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+	color: var(--swe-text);
+	max-width: 780px;
+	margin: 0 auto;
+	padding: 0 16px;
+	box-sizing: border-box;
+}
+
+.swe-wrap *,
+.swe-wrap *::before,
+.swe-wrap *::after {
+	box-sizing: border-box;
+}
+
+/* ---------- Hero ---------- */
+.swe-hero {
+	background: linear-gradient(160deg, var(--swe-bg-1) 0%, var(--swe-bg-2) 100%);
+	border-radius: var(--swe-radius-lg);
+	padding: 32px 18px 28px;
+	margin: 24px 0;
+}
+
+.swe-hero-inner {
+	text-align: center;
+}
+
+.swe-h1 {
+	font-size: 1.9rem;
+	line-height: 1.2;
+	margin: 0 0 10px;
+	font-weight: 800;
+}
+
+.swe-sub {
+	font-size: 1.02rem;
+	color: var(--swe-muted);
+	margin: 0 auto 18px;
+	max-width: 46ch;
+}
+
+.swe-badges {
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	justify-content: center;
+	padding: 0;
+	margin: 0 0 22px;
+}
+
+.swe-badges li {
+	background: rgba(255, 255, 255, 0.7);
+	border: 1px solid var(--swe-card-border);
+	border-radius: 999px;
+	padding: 6px 12px;
+	font-size: 0.82rem;
+	font-weight: 600;
+	color: var(--swe-text);
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.swe-badge-icon {
+	color: var(--swe-accent);
+	font-weight: 900;
+}
+
+/* ---------- Card base (glassmorphism-lite) ---------- */
+.swe-card {
+	background: var(--swe-card-bg);
+	border: 1px solid var(--swe-card-border);
+	border-radius: var(--swe-radius-lg);
+	box-shadow: var(--swe-shadow);
+	backdrop-filter: blur(6px);
+	padding: 22px 18px 26px;
+	text-align: left;
+}
+
+.swe-tool-card {
+	text-align: center;
+}
+
+.swe-field-row {
+	text-align: left;
+	margin-bottom: 16px;
+}
+
+.swe-label {
+	display: block;
+	font-size: 0.85rem;
+	font-weight: 700;
+	margin-bottom: 6px;
+	color: var(--swe-muted);
+}
+
+.swe-select {
+	width: 100%;
+	padding: 12px 14px;
+	border-radius: var(--swe-radius-md);
+	border: 1px solid #d7dcec;
+	background: #fff;
+	font-size: 1rem;
+	font-weight: 600;
+	color: var(--swe-text);
+	appearance: none;
+	-webkit-appearance: none;
+	background-image: linear-gradient(45deg, transparent 50%, var(--swe-muted) 50%), linear-gradient(135deg, var(--swe-muted) 50%, transparent 50%);
+	background-position: calc(100% - 20px) center, calc(100% - 15px) center;
+	background-size: 5px 5px, 5px 5px;
+	background-repeat: no-repeat;
+}
+
+.swe-instructions {
+	font-size: 0.92rem;
+	color: var(--swe-muted);
+	margin: 0 0 20px;
+}
+
+/* ---------- Dial / Start button ---------- */
+.swe-dial-wrap {
+	position: relative;
+	width: 168px;
+	height: 168px;
+	margin: 0 auto 18px;
+}
+
+.swe-ring-svg {
+	width: 100%;
+	height: 100%;
+	transform: rotate(-90deg);
+}
+
+.swe-ring-bg {
+	fill: none;
+	stroke: rgba(59, 91, 253, 0.14);
+	stroke-width: 8;
+}
+
+.swe-ring-fg {
+	fill: none;
+	stroke: var(--swe-primary);
+	stroke-width: 8;
+	stroke-linecap: round;
+	stroke-dasharray: 326.7256;
+	stroke-dashoffset: 326.7256;
+	transition: stroke-dashoffset 0.2s linear;
+}
+
+.swe-start-btn {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 128px;
+	height: 128px;
+	border-radius: 50%;
+	border: none;
+	background: linear-gradient(150deg, var(--swe-primary), var(--swe-primary-dark));
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 4px;
+	cursor: pointer;
+	box-shadow: 0 10px 24px rgba(59, 91, 253, 0.35);
+	transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.swe-start-btn:hover {
+	transform: translate(-50%, -50%) scale(1.03);
+}
+
+.swe-start-btn:active {
+	transform: translate(-50%, -50%) scale(0.97);
+}
+
+.swe-start-btn.is-playing {
+	background: linear-gradient(150deg, #ff6161, #d63b3b);
+	box-shadow: 0 10px 24px rgba(214, 59, 59, 0.35);
+}
+
+.swe-start-icon {
+	font-size: 1.6rem;
+	line-height: 1;
+}
+
+.swe-start-text {
+	font-size: 0.82rem;
+	font-weight: 700;
+	letter-spacing: 0.02em;
+}
+
+/* ---------- Status row ---------- */
+.swe-status-row {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	font-size: 0.92rem;
+	margin-bottom: 16px;
+	flex-wrap: wrap;
+}
+
+.swe-status-label {
+	color: var(--swe-muted);
+	font-weight: 600;
+}
+
+.swe-status-value {
+	font-weight: 800;
+	color: var(--swe-primary);
+}
+
+.swe-timer {
+	font-variant-numeric: tabular-nums;
+	background: rgba(59, 91, 253, 0.08);
+	padding: 2px 10px;
+	border-radius: 999px;
+	font-weight: 700;
+	color: var(--swe-primary-dark);
+}
+
+.swe-warning {
+	font-size: 0.86rem;
+	color: #b1460a;
+	background: rgba(255, 152, 0, 0.1);
+	border: 1px solid rgba(255, 152, 0, 0.25);
+	border-radius: var(--swe-radius-md);
+	padding: 8px 12px;
+	margin: 0 0 12px;
+}
+
+.swe-disclaimer {
+	font-size: 0.78rem;
+	color: var(--swe-muted);
+	line-height: 1.5;
+	margin: 0;
+}
+
+.swe-audio-support-note {
+	font-size: 0.85rem;
+	color: #b1460a;
+	margin-top: 14px;
+}
+
+/* ---------- Result card ---------- */
+.swe-result-card {
+	margin-top: 18px;
+	padding-top: 18px;
+	border-top: 1px dashed rgba(59, 91, 253, 0.25);
+}
+
+.swe-result-title {
+	font-weight: 800;
+	font-size: 1.05rem;
+	margin: 0 0 12px;
+	color: var(--swe-accent);
+}
+
+.swe-result-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	justify-content: center;
+}
+
+.swe-btn-secondary,
+.swe-btn-primary {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 10px 16px;
+	border-radius: 999px;
+	font-size: 0.86rem;
+	font-weight: 700;
+	text-decoration: none;
+	cursor: pointer;
+	border: 1px solid var(--swe-card-border);
+}
+
+.swe-btn-secondary {
+	background: #fff;
+	color: var(--swe-primary-dark);
+}
+
+.swe-btn-primary {
+	background: var(--swe-primary);
+	color: #fff;
+	border: none;
+}
+
+/* ---------- Generic sections ---------- */
+.swe-section {
+	margin: 22px 0;
+}
+
+.swe-h2 {
+	font-size: 1.3rem;
+	font-weight: 800;
+	margin: 0 0 12px;
+}
+
+.swe-p {
+	font-size: 1rem;
+	line-height: 1.6;
+	color: var(--swe-text);
+	margin: 0 0 14px;
+}
+
+/* ---------- Speaker test ---------- */
+.swe-test-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 10px;
+	margin: 16px 0 10px;
+}
+
+.swe-test-btn {
+	padding: 12px 10px;
+	border-radius: var(--swe-radius-md);
+	border: 1px solid var(--swe-card-border);
+	background: #fff;
+	font-weight: 700;
+	font-size: 0.9rem;
+	color: var(--swe-text);
+	cursor: pointer;
+}
+
+.swe-test-btn:active {
+	transform: scale(0.98);
+}
+
+.swe-test-status {
+	font-size: 0.9rem;
+	font-weight: 600;
+	color: var(--swe-primary-dark);
+	min-height: 1.2em;
+}
+
+/* ---------- Quiz ---------- */
+.swe-quiz-options {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.swe-quiz-btn {
+	text-align: left;
+	padding: 14px 16px;
+	border-radius: var(--swe-radius-md);
+	border: 1px solid var(--swe-card-border);
+	background: #fff;
+	font-weight: 700;
+	font-size: 0.95rem;
+	cursor: pointer;
+}
+
+.swe-quiz-btn[aria-pressed="true"] {
+	border-color: var(--swe-primary);
+	background: rgba(59, 91, 253, 0.06);
+}
+
+.swe-quiz-result {
+	margin-top: 16px;
+	padding: 14px 16px;
+	border-radius: var(--swe-radius-md);
+	background: rgba(23, 195, 178, 0.08);
+	border: 1px solid rgba(23, 195, 178, 0.3);
+}
+
+.swe-quiz-advice {
+	margin: 0 0 12px;
+	font-size: 0.95rem;
+}
+
+/* ---------- Steps / tips lists ---------- */
+.swe-steps,
+.swe-tips-list {
+	padding-left: 22px;
+	line-height: 1.7;
+}
+
+.swe-steps li,
+.swe-tips-list li {
+	margin-bottom: 6px;
+}
+
+/* ---------- FAQ ---------- */
+.swe-faq-list {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.swe-faq-item {
+	border: 1px solid var(--swe-card-border);
+	border-radius: var(--swe-radius-md);
+	padding: 4px 14px;
+	background: #fff;
+}
+
+.swe-faq-question {
+	cursor: pointer;
+	font-weight: 700;
+	padding: 10px 0;
+	list-style: none;
+}
+
+.swe-faq-question::-webkit-details-marker {
+	display: none;
+}
+
+.swe-faq-question::after {
+	content: "+";
+	float: right;
+	font-weight: 900;
+	color: var(--swe-primary);
+}
+
+details[open] .swe-faq-question::after {
+	content: "\2212";
+}
+
+.swe-faq-answer {
+	margin: 0 0 12px;
+	color: var(--swe-muted);
+	line-height: 1.6;
+}
+
+/* ---------- Related links ---------- */
+.swe-related-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 10px;
+}
+
+.swe-related-card {
+	display: block;
+	padding: 14px 16px;
+	border-radius: var(--swe-radius-md);
+	border: 1px solid var(--swe-card-border);
+	background: #fff;
+	text-decoration: none;
+	color: var(--swe-text);
+	font-weight: 700;
+	transition: box-shadow 0.15s ease;
+}
+
+.swe-related-card:hover {
+	box-shadow: var(--swe-shadow);
+}
+
+/* ---------- Larger screens ---------- */
+@media (min-width: 640px) {
+	.swe-h1 {
+		font-size: 2.4rem;
+	}
+
+	.swe-hero {
+		padding: 48px 32px 40px;
+	}
+
+	.swe-test-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.swe-related-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.swe-quiz-options {
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+
+	.swe-quiz-btn {
+		flex: 1 1 auto;
+	}
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	.swe-start-btn,
+	.swe-ring-fg {
+		transition: none;
+	}
+}
