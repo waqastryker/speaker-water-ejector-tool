@@ -101,8 +101,10 @@ $faqs         = SWE_Water_Ejector_Tool::get_faq_items();
 			<button type="button" class="swe-test-btn" data-test="left"><?php esc_html_e( 'Left Speaker', 'speaker-water-ejector' ); ?></button>
 			<button type="button" class="swe-test-btn" data-test="right"><?php esc_html_e( 'Right Speaker', 'speaker-water-ejector' ); ?></button>
 			<button type="button" class="swe-test-btn" data-test="both"><?php esc_html_e( 'Both Speakers', 'speaker-water-ejector' ); ?></button>
-			<button type="button" class="swe-test-btn" data-test="high"><?php esc_html_e( 'High Sound', 'speaker-water-ejector' ); ?></button>
-			<button type="button" class="swe-test-btn" data-test="low"><?php esc_html_e( 'Low Sound', 'speaker-water-ejector' ); ?></button>
+			<button type="button" class="swe-test-btn" data-test="high"><?php esc_html_e( 'Treble (2-8 kHz)', 'speaker-water-ejector' ); ?></button>
+			<button type="button" class="swe-test-btn" data-test="low"><?php esc_html_e( 'Bass (150-400 Hz)', 'speaker-water-ejector' ); ?></button>
+			<button type="button" class="swe-test-btn" data-test="voice"><?php esc_html_e( 'Voice Range (300-3400 Hz)', 'speaker-water-ejector' ); ?></button>
+			<button type="button" class="swe-test-btn" data-test="distortion"><?php esc_html_e( 'Distortion Sweep', 'speaker-water-ejector' ); ?></button>
 		</div>
 
 		<p class="swe-test-status" id="swe-test-status" aria-live="polite"></p>
