@@ -3,7 +3,7 @@
  * Plugin Name: Speaker Water Ejector Tool
  * Plugin URI: https://example.com/
  * Description: A browser-based speaker water ejector, speaker sound test, and troubleshooting quiz. Adds the [speaker_water_ejector] shortcode. Built for Kadence + Rank Math + LiteSpeed Cache.
- * Version: 1.0.0
+ * Version: 1.1.0
  * Author: Your Name
  * Author URI: https://example.com/
  * License: GPL v2 or later
@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // No direct access.
 }
 
-define( 'SWE_TOOL_VERSION', '1.0.0' );
+define( 'SWE_TOOL_VERSION', '1.1.0' );
 define( 'SWE_TOOL_PATH', plugin_dir_path( __FILE__ ) );
 define( 'SWE_TOOL_URL', plugin_dir_url( __FILE__ ) );
 
