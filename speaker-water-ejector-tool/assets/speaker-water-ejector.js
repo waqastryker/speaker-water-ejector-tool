@@ -356,8 +356,10 @@
 		left: { freq: 440, pan: -1, label: 'Left speaker' },
 		right: { freq: 440, pan: 1, label: 'Right speaker' },
 		both: { freq: 440, pan: 0, label: 'Both speakers' },
-		low: { freq: 220, pan: 0, label: 'Low tone' },
-		high: { freq: 880, pan: 0, label: 'High tone' }
+		low: { freq: 150, freqEnd: 400, pan: 0, label: 'Bass range (150-400 Hz)' },
+		high: { freq: 2000, freqEnd: 8000, pan: 0, label: 'Treble range (2-8 kHz)' },
+		voice: { freq: 300, freqEnd: 3400, pan: 0, label: 'Voice range (300-3400 Hz)' },
+		distortion: { freq: 500, freqEnd: 2000, pan: 0, label: 'Distortion sweep (500-2000 Hz)' }
 	};
 
 	function initSoundTest( root, AudioContextClass, sharedCtx ) {
@@ -413,6 +415,9 @@
 		var osc = audioCtx.createOscillator();
 		osc.type = 'sine';
 		osc.frequency.setValueAtTime( profile.freq, now );
+		if ( profile.freqEnd ) {
+			osc.frequency.exponentialRampToValueAtTime( profile.freqEnd, now + duration );
+		}
 
 		var gainNode = audioCtx.createGain();
 		gainNode.gain.setValueAtTime( 0, now );
